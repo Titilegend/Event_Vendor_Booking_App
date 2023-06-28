@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Event Vendor Booking App</string>
+    <string name="title">Vendor Connect</string>
+    <string name="SignUp">Create Account</string>
+    <string name="SignUpButton">Sign Up</string>
+    <string name="LoginButton">Login</string>
+    <string name="welcome">Welcome Back!</string>
+    <string name="event_vendor">Event Vendor</string>
+    <string name="client">Client/Company</string>
+    <string name="next">Next</string>
+    <string name="contact_info_text">Contact Information</string>
+    <string name="expert_info_text">Brand Information</string>
+    <string name="event_vendor_reg">Event Vendor Regisration</string>
+    <string name="accountType">Join as an Event Vendor or Client</string>
+    <string name="recommended">Recommended for you</string>
+    <string name="main_text">Unlock Unforgettable Events:Find Your Perfect Vendor Match</string>
+    <string name="AccountText">Don\'t have an account? <font color="#33174E"><u>Sign up</u></font></string>
+    <string name="haveAccountText">Already have an account? <font color="#33174E"><u>Login</u></font></string>
+</resources>
