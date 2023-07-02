@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Event Vendor Booking App</string>
+    <string name="app_name">Vendor Connect</string>
     <string name="title">Vendor Connect</string>
+    <string name="category">Category</string>
+    <string name="name">Name</string>
+    <string name="price_range">Price</string>
     <string name="SignUp">Create Account</string>
     <string name="SignUpButton">Sign Up</string>
     <string name="LoginButton">Login</string>
@@ -13,7 +16,83 @@
     <string name="event_vendor_reg">Event Vendor Regisration</string>
     <string name="accountType">Join as an Event Vendor or Client</string>
     <string name="recommended">Recommended for you</string>
-    <string name="main_text">Unlock Unforgettable Events:Find Your Perfect Vendor Match</string>
+    <string name="main_text">Find Your Perfect Vendor Match</string>
+    <string name="location">Location:</string>
+    <string name="phoneNumber">Phone Number:</string>
+    <string name="Services">Services Rendered:</string>
+    <string name="otherServices">otherServices:</string>
+    <string name="teamSize">Team Size:</string>
+    <string name="priceRange">Price Range:</string>
+    <string name="schedule_appointment">Schedule Appointment</string>
+    <string name="website">Website:</string>
+    <string name="socialMedia">Social Media:</string>
+    <string name="description">Description:</string>
+    <string name="account_details">Account Details</string>
     <string name="AccountText">Don\'t have an account? <font color="#33174E"><u>Sign up</u></font></string>
     <string name="haveAccountText">Already have an account? <font color="#33174E"><u>Login</u></font></string>
+    <string-array name="nigeria_states">
+        <item>Abia</item>
+        <item>Adamawa</item>
+        <item>Akwa Ibom</item>
+        <item>Anambra</item>
+        <item>Bauchi</item>
+        <item>Benue</item>
+        <item>Borno</item>
+        <item>Bayelsa</item>
+        <item>Cross River</item>
+        <item>Delta</item>
+        <item>Ebonyi</item>
+        <item>Edo</item>
+        <item>Ekiti</item>
+        <item>Enugu</item>
+        <item>Federal Capital Territory</item>
+        <item>Gombe</item>
+        <item>Imo</item>
+        <item>Jigawa</item>
+        <item>Kebbi</item>
+        <item>Kaduna</item>
+        <item>Kano</item>
+        <item>Kogi</item>
+        <item>Katsina</item>
+        <item>Kwara</item>
+        <item>Lagos</item>
+        <item>Nasarawa</item>
+        <item>Niger</item>
+        <item>Ogun</item>
+        <item>Ondo</item>
+        <item>Osun</item>
+        <item>Oyo</item>
+        <item>Plateau</item>
+        <item>Rivers</item>
+        <item>Sokoto</item>
+        <item>Taraba</item>
+        <item>Yobe</item>
+        <item>Zamfara</item>
+    </string-array>
+
+    <string-array name="price_list">
+        <item>₦5,000 - ₦10,000</item>
+        <item>₦10,000 - ₦20,000</item>
+        <item>₦20,000 - ₦50,000</item>
+        <item>₦50,000 - ₦100,000</item>
+        <item>₦100,000 and above</item>
+    </string-array>
+    <string-array name="team_size_list">
+        <item>1–2 members</item>
+        <item>3–5 members</item>
+        <item>6–10 members</item>
+        <item>11–15 members</item>
+        <item>16 and above</item>
+    </string-array>
+    <string-array name="services_rendered">
+        <item>Event Planning</item>
+        <item>Catering/Food Services</item>
+        <item>Musician/Entertainment</item>
+        <item>Photography</item>
+        <item>Videography</item>
+        <item>Makeup/Hair Styling</item>
+        <item>Other</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

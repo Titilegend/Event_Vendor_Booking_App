@@ -70,7 +70,7 @@
             app:startIconDrawable="@drawable/email_icon">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailSignup"
+                android:id="@+id/emailSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -89,7 +89,7 @@
                 app:startIconDrawable="@drawable/password_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/passwordSignup"
+                    android:id="@+id/passwordSignUp"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:hint="Password"

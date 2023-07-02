@@ -41,13 +41,13 @@
             app:layout_constraintTop_toBottomOf="@+id/contactInfoInputLayout" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/imageList1"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="32dp"
             android:src="@drawable/round_add_a_photo_24"
             app:civ_border_color="#DA9767"
-            app:civ_border_width="1dp"
+            app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,13 +59,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
-            android:hint="Vendor Name *"
+            android:hint="Full Name *"
             app:hintEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_image">
+            app:layout_constraintTop_toBottomOf="@+id/imageList1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/vendorNameEditText"
+                android:id="@+id/fullNameEditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -80,13 +80,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:hint="Contact Information *"
+            android:hint="Phone number *"
             app:hintEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/locationInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/contactInfoEditText"
+
+                android:id="@+id/phoneNumberEditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -96,6 +97,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/locationInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -105,18 +107,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vendorNameInputLayout">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/locationEditText"
-                android:layout_width="350dp"
+            <AutoCompleteTextView
+                android:id="@+id/locationList"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingBottom="30dp" />
+                android:dropDownWidth="match_parent"
+                android:dropDownVerticalOffset="8dp"
+                android:inputType="none"
+                android:paddingStart="20dp"
+                android:popupBackground="@android:color/white"
+                tools:text="Abia" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
@@ -125,11 +130,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textView11">
 
             <AutoCompleteTextView
-                android:id="@+id/actvServicesRendered"
+                android:id="@+id/servicesRenderedList"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:dropDownWidth="match_parent"
+                android:dropDownVerticalOffset="8dp"
                 android:hint="Services Rendered *"
-                android:inputType="none" />
+                android:inputType="none"
+                android:paddingStart="20dp"
+                android:popupBackground="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -157,19 +166,20 @@
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-
             android:layout_marginTop="20dp"
-            android:hint="Team Size *"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <AutoCompleteTextView
                 android:id="@+id/teamSizeEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:required="true" />
+                android:layout_height="60dp"
+                android:dropDownWidth="match_parent"
+                android:dropDownVerticalOffset="8dp"
+                android:inputType="none"
+                android:hint="Team Size *"
+                android:paddingStart="20dp"
+                android:popupBackground="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -181,7 +191,7 @@
             android:layout_marginTop="20dp"
             android:hint="Website"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/otherpricesLayout">
+            app:layout_constraintTop_toBottomOf="@+id/accountDetailsLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/websiteEditText"
@@ -212,7 +222,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pricingLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
@@ -221,12 +231,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/teamSizeTextInputLayout">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pricingEditText"
+            <AutoCompleteTextView
+                android:id="@+id/pricingAutoComplete"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLines="1" />
+                android:layout_height="60dp"
+                android:dropDownWidth="match_parent"
+                android:dropDownVerticalOffset="8dp"
+                android:inputType="none"
+                android:paddingStart="20dp"
+                android:popupBackground="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -241,7 +254,7 @@
             app:layout_constraintTop_toBottomOf="@+id/socialMediaLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/aboutEditText"
+                android:id="@+id/descriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
@@ -250,7 +263,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otherpricesLayout"
+            android:id="@+id/accountDetailsLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -260,18 +273,18 @@
             app:layout_constraintTop_toBottomOf="@+id/pricingLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etOtherPrices"
+                android:id="@+id/accountDetailsEditText"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:hint="Other"
-                android:inputType="text" />
+                android:hint="Account Details"
+                android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/submitButton"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="31dp"
             android:backgroundTint="#DA9767"
             android:fontFamily="@font/zabal_semibold"
             android:text="Submit"

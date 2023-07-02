@@ -16,5 +16,9 @@ class AccountTypeActivity : AppCompatActivity() {
             val intent = Intent(this@AccountTypeActivity, VendorForm::class.java)
             startActivity(intent)
         }
+        accountTypeBinding.ClientButton.setOnClickListener {
+            val intent = Intent(this@AccountTypeActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
