@@ -7,7 +7,9 @@
     <string name="SignUp">Create Account</string>
     <string name="SignUpButton">Sign Up</string>
     <string name="LoginButton">Login</string>
+    <string name="bookings">Bookings</string>
     <string name="welcome">Welcome Back!</string>
+    <string name="message">message</string>
     <string name="event_vendor">Event Vendor</string>
     <string name="client">Client/Company</string>
     <string name="next">Next</string>

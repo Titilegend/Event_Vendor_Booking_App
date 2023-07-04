@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView.OnQueryTextListener
-import android.widget.Toast
-import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eventvendorbookingapp.databinding.FragmentHomeFragmentBinding
@@ -16,6 +14,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.util.Locale
 
 
 class Homefragment : Fragment(R.layout.fragment_home_fragment) {
@@ -36,7 +35,7 @@ class Homefragment : Fragment(R.layout.fragment_home_fragment) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ):View {
         homeFragmentBinding = FragmentHomeFragmentBinding.inflate(inflater, container, false)
         recyclerView = homeFragmentBinding.recyclerView
         adapter = Adapter(dataList)
@@ -49,41 +48,29 @@ class Homefragment : Fragment(R.layout.fragment_home_fragment) {
 
 
         retrieveDataFromDataBase()
-        return homeFragmentBinding.root
-    }
-
-/*
-
-        homeFragmentBinding.searchView.OnQueryTextListener(object:OnQueryTextListener{
+        homeFragmentBinding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query:String?):Boolean{
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?) {
-                filterList(newText)
+            override fun onQueryTextChange(newText: String?) :Boolean{
+               filterList (newText)
                 return true
             }
         })
-        return  homeFragmentBinding.root
-        }
 
-    private fun filterList(query: String?) {
-    if(query!=null){
-        filterList = ArrayList<VendorDetails>()
-        for(i in VendorDetails){
-
-        }
+        return homeFragmentBinding.root
     }
-    }*/
 
 
-    fun retrieveDataFromDataBase() {
+    private fun retrieveDataFromDataBase() {
     vendorDetailsRef.addValueEventListener(object : ValueEventListener {
         override fun onDataChange(snapshot: DataSnapshot) {
             dataList.clear()
             for (entries in snapshot.children) {
                 val vendorEntry = entries.getValue(VendorDetails::class.java)
                 if (vendorEntry != null) {
+                    val fullName = vendorEntry.fullName
                     println("servicesRendered:${vendorEntry.vendorId}")
                     println("fullName:${vendorEntry.vendorId}")
                     println("pricing:${vendorEntry.vendorId}")
@@ -114,6 +101,26 @@ class Homefragment : Fragment(R.layout.fragment_home_fragment) {
 
     })
 
+}
+    private fun filterList(query: String?) {
+        val filteredDataList = ArrayList<VendorDetails>()
+        if (!query.isNullOrEmpty()) {
+            val lowercaseQuery = query.lowercase(Locale.ROOT)
+            for (vendor in dataList) {
+                //val formattedQuery = lowercaseQuery.replace("₦","").trim()
+                if (vendor.fullName.lowercase(Locale.ROOT).contains(lowercaseQuery) ||
+                    vendor.servicesRendered.lowercase(Locale.ROOT).contains(lowercaseQuery)||
+                            vendor.pricing.contains(lowercaseQuery)||
+                            vendor.location.lowercase(Locale.ROOT).contains(lowercaseQuery)
+                ) {
+                    filteredDataList.add(vendor)
+                }
+            }
+            adapter.setData(filteredDataList)
+        } else {
+            adapter.setData(dataList)
+        }
+    }
+}
 
-}
-}
+

@@ -2,6 +2,7 @@ package com.example.eventvendorbookingapp
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -71,6 +72,7 @@ class VendorForm : AppCompatActivity() {
         //    getContent.launch("image/*")
         // }
 
+
         val locationList = resources.getStringArray(R.array.nigeria_states)
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, locationList)
         vendorFormBindng.locationList.setAdapter(arrayAdapter)
@@ -101,14 +103,12 @@ class VendorForm : AppCompatActivity() {
             val description:String = vendorFormBindng.descriptionEditText.text.toString()
             val accountDetails:String = vendorFormBindng.accountDetailsEditText.text.toString()
 
-            val vendorId: String = vendorEnteriesRef.push().key.toString()
-
-            val formData = VendorDetails(vendorId,phoneNumber,location,category,name,otherServices,teamSize,website,socialMediaLink,priceRange,description,accountDetails)
 
 
-            vendorEnteriesRef.child(vendorId).setValue(formData)
+
             if (name.isEmpty()) {
                 vendorFormBindng.fullNameEditText.error = "Please enter a name"
+
                 return@setOnClickListener
             }
 
@@ -132,6 +132,12 @@ class VendorForm : AppCompatActivity() {
                 vendorFormBindng.socialMediaEditText.error = "Please enter a valid social media URL"
                 return@setOnClickListener
             }
+
+            val vendorId: String = vendorEnteriesRef.push().key.toString()
+
+            val formData = VendorDetails(vendorId,phoneNumber,location,category,name,otherServices,teamSize,website,socialMediaLink,priceRange,description,accountDetails)
+            vendorEnteriesRef.child(vendorId).setValue(formData)
+
             val intent = Intent(this@VendorForm, MainActivity::class.java)
             startActivity(intent)
         }

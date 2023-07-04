@@ -1,5 +1,6 @@
 package com.example.eventvendorbookingapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
@@ -7,12 +8,14 @@ import com.example.eventvendorbookingapp.databinding.ActivityVendorprofileDetail
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class VendorProfileDetail : AppCompatActivity() {
+class VendorProfileDetail : AppCompatActivity(){
     lateinit var vendorProfileDetailBinding: ActivityVendorprofileDetailBinding
-    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+   // val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: Adapter
+    private lateinit var bookingAdapter: BookingAdapter
     private val dataList = ArrayList<VendorDetails>()
+    private val  bookingsList:MutableList<AppointmentData> = mutableListOf()
     private lateinit var vendorDetailsRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +23,8 @@ class VendorProfileDetail : AppCompatActivity() {
         vendorProfileDetailBinding = ActivityVendorprofileDetailBinding.inflate(layoutInflater)
         val view = vendorProfileDetailBinding.root
         setContentView(view)
+
+
 
 
         val name = intent?.getStringExtra("name")
@@ -46,39 +51,61 @@ class VendorProfileDetail : AppCompatActivity() {
         vendorProfileDetailBinding.descriptionView.text = description
         vendorProfileDetailBinding.account.text = accountDetails
 
+        /*val bookingDialogFragment = BookingDialogFragment.newInstance("name")
+        bookingDialogFragment.show(supportFragmentManager, "bookingDialog")*/
+
+
+        vendorProfileDetailBinding.scheduleAppointmentButton.setOnClickListener {
+            val intent = Intent(this@VendorProfileDetail, ClientForm::class.java)
+            startActivity(intent)
+        }
+
+
 
 
     }
-    /*fun retrieveDataFromDataBase() {
-        vendorDetailsRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                dataList.clear()
-                for (entries in snapshot.children) {
-                    val vendorEntry = entries.getValue(VendorDetails::class.java)
-                    if (vendorEntry != null) {
-                       // println("servicesRendered:${vendorEntry.vendorId}")
-                       // println("fullName:${vendorEntry.vendorId}")
-                        //println("pricing:${vendorEntry.vendorId}")
-                        println("location:${vendorEntry.vendorId}")
-                        println("contactInfo:${vendorEntry.vendorId}")
-                        println("otherServices:${vendorEntry.vendorId}")
-                        println("teamSize:${vendorEntry.vendorId}")
-                        println("website:${vendorEntry.vendorId}")
-                        println("socialMedia:${vendorEntry.vendorId}")
-                        println("description:${vendorEntry.vendorId}")
-                        println("accountDetails:${vendorEntry.vendorId}")
-                        println("----------------------------")
 
-                        dataList.add(vendorEntry)
-                    }
-                }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
+    /*un onBookingDetailsSubmitted(
+        appointmentId: String,
+        selectedDate: String,
+        selectedTime: String,
+        vendorName: String?,
+        message: String
+    ) {
+        val databaseReference = FirebaseDatabase.getInstance().getReference("bookings")
+        val bookingId = databaseReference.push().key
+        val bookingData = HashMap<String, Any>()
+        bookingData["selectedDate"] = selectedDate
+        bookingData["selectedTime"] = selectedTime
+        vendorName?.let { bookingData["vendorName"] = it } // Only add vendorName if it is not null
+        bookingData["message"] = message
+
+        // Save the booking details to the generated child node
+        if (bookingId != null) {
+            databaseReference.child(bookingId).setValue(bookingData)
+        }
     }*/
+
+
+
+   /* override fun onBookingDetailsSubmitted(
+        appointmentId: String,
+        selectedDate: String,
+        selectedTime: String,
+        vendorName: String?,
+        message: String
+    ) {
+        val appointmentData = vendorName?.let {
+            AppointmentData(appointmentId,selectedDate,selectedTime,vendorName,message)
+        }
+        if (appointmentData != null) {
+            bookingsList.add(appointmentData)
+        }
+        bookingAdapter.notifyDataSetChanged()
+    }*/
+
+
 }
 
 

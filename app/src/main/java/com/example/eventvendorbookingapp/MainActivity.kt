@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     //val myReference: DatabaseReference = database.reference.child("vendors")
     val dataList = ArrayList<VendorDetails>()
     lateinit var adapter: Adapter
+    lateinit var bookingAdapter: BookingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)

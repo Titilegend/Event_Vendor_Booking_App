@@ -297,13 +297,14 @@
             app:layout_constraintTop_toBottomOf="@+id/imageList3" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="250sp"
-            android:layout_height="50dp"
+            android:id="@+id/scheduleAppointmentButton"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#DA9767"
             android:text="@string/schedule_appointment"
+            android:textAllCaps="true"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/account" />
