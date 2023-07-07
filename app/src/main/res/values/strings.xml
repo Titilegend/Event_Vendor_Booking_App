@@ -10,6 +10,7 @@
     <string name="bookings">Bookings</string>
     <string name="welcome">Welcome Back!</string>
     <string name="message">message</string>
+    <string name="recommend">Recommended </string>
     <string name="event_vendor">Event Vendor</string>
     <string name="client">Client/Company</string>
     <string name="next">Next</string>

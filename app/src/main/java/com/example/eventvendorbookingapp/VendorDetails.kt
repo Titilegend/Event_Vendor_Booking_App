@@ -15,5 +15,6 @@ data class VendorDetails(
     val socialMedia:String = "",
     val pricing:String = "",
     val description:String = "",
-    val accountDetails:String = ""
+    val accountDetails:String = "",
+    val liked:Boolean = true
 )

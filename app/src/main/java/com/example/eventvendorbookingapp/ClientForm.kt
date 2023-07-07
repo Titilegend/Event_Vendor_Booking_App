@@ -7,15 +7,22 @@ import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.eventvendorbookingapp.databinding.ActivityClientFormBinding
+import com.google.firebase.database.FirebaseDatabase
 
 class ClientForm : AppCompatActivity() {
     private lateinit var clientFormBinding: ActivityClientFormBinding
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val bookingsRef = database.reference.child("bookings")
+    val appointmentList = ArrayList<AppointmentData>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         clientFormBinding = ActivityClientFormBinding.inflate(layoutInflater)
         val view = clientFormBinding.root
         setContentView(view)
+
+
 
 
         clientFormBinding.editTextDate.setOnClickListener {
@@ -27,13 +34,28 @@ class ClientForm : AppCompatActivity() {
         }
 
         clientFormBinding.dialogSubmitButton.setOnClickListener {
-            val date = clientFormBinding.editTextDate.text.toString()
-            val time = clientFormBinding.editTextTime.text.toString()
-            val clientName = clientFormBinding.editTextClientName.text.toString()
-            val vendorName = clientFormBinding.editTextVendorName.text.toString()
-            val message = clientFormBinding.editTextMessage.text.toString()
+            val date:String = clientFormBinding.editTextDate.text.toString()
+            val time:String = clientFormBinding.editTextTime.text.toString()
+            val clientName:String = clientFormBinding.editTextClientName.text.toString()
+            val vendorName:String = clientFormBinding.editTextVendorName.text.toString()
+            val message:String = clientFormBinding.editTextMessage.text.toString()
+            val bookingId: String = bookingsRef.push().key.toString()
 
-            val fragment = BookingsFragment.newInstance(date,time,clientName,vendorName,message)
+
+            val fragment = BookingsFragment()
+            val args = Bundle().apply {
+                putString("vendorName", vendorName)
+                putString("clientName", clientName)
+                putString("date", date)
+                putString("time", time)
+                putString("message", message)
+            }
+            val  bookingData = AppointmentData(bookingId,date,time,clientName,vendorName,message)
+            bookingsRef.child(bookingId).setValue(bookingData)
+            /*val intent = Intent(this@ClientForm, MainActivity::class.java)
+            startActivity(intent)*/
+            fragment.arguments = args
+
             supportFragmentManager.beginTransaction()
                 .add(R.id.cardBookingsView,fragment)
                 .addToBackStack(null)
@@ -72,6 +94,10 @@ class ClientForm : AppCompatActivity() {
         }, year, month, day)
 
         datePickerDialog.show()
+    }
+
+    fun onLiked(){
+
     }
 
     // private fun submitForm() {

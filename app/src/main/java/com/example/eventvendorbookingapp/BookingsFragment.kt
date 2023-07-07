@@ -18,34 +18,12 @@ import com.google.firebase.database.ValueEventListener
 
 class BookingsFragment : Fragment(R.layout.fragment_bookings_fragment) {
     private lateinit var bookingsFragmentBinding: FragmentBookingsFragmentBinding
-    private lateinit var vendorName: String
-    private lateinit var clientName: String
-    private lateinit var message: String
-    private lateinit var date:String
-    private  lateinit var time:String
-
-   companion object {
-        private const val ARG_VENDOR_NAME = "vendorName"
-        private const val ARG_CLIENT_NAME = "clientName"
-        private const val ARG_MESSAGE = "message"
-        private const val ARG_DATE = "date"
-        private const val ARG_TIME = "time"
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: BookingAdapter
+    private val bookingList = ArrayList<AppointmentData>()
+    private lateinit var bookingsRef: DatabaseReference
 
 
-        fun newInstance(vendorName: String, clientName: String, date:String,time:String,message:String): BookingsFragment {
-            val fragment = BookingsFragment()
-            val args = Bundle().apply {
-                putString(ARG_VENDOR_NAME, vendorName)
-                putString(ARG_CLIENT_NAME, clientName)
-                putString(ARG_MESSAGE, message)
-                putString(ARG_DATE, date)
-                putString(ARG_TIME, time)
-
-            }
-            fragment.arguments = args
-            return fragment
-        }
-    }
     //private val appointmentList = ArrayList<AppointmentData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,34 +37,47 @@ class BookingsFragment : Fragment(R.layout.fragment_bookings_fragment) {
     ): View? {
 
         bookingsFragmentBinding = FragmentBookingsFragmentBinding.inflate(inflater, container, false)
-        //bookingRecycleView = bookingsFragmentBinding.recyclerViewBookings
-        vendorName = arguments?.getString(ARG_VENDOR_NAME, "")?: " "
-        clientName = arguments?.getString(ARG_CLIENT_NAME, "")?: ""
-        message = arguments?.getString(ARG_MESSAGE, "")?:""
-        date = arguments?.getString(ARG_DATE,"")?:""
-        time = arguments?.getString(ARG_TIME,"")?:""
+        recyclerView = bookingsFragmentBinding.recyclerViewBookings
+        adapter = BookingAdapter(bookingList)
 
-        // Use the form data to populate the RecyclerView
-         val list = ArrayList<AppointmentData>()
-
-        val bookingList = AppointmentData(vendorName,time,vendorName,clientName,message)
-        list.add(bookingList)
-        val adapter = BookingAdapter(list) // Replace with your RecyclerView adapter
-
-        bookingsFragmentBinding.recyclerViewBookings.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         bookingsFragmentBinding.recyclerViewBookings.adapter = adapter
+        bookingsRef = FirebaseDatabase.getInstance().reference.child("bookings")
+        retrieveDataFromDataBase()
+
         return bookingsFragmentBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        /*bookingsFragmentBinding.recyclerViewBookings.layoutManager =
-            LinearLayoutManager(requireContext())*/
-        //bookingAdapter = BookingAdapter(appointmentList)
-       // bookingsFragmentBinding.recyclerViewBookings.adapter = bookingAdapter
+    private fun retrieveDataFromDataBase() {
+        bookingsRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                bookingList.clear()
+                for (entries in snapshot.children) {
+                    val bookingEntry = entries.getValue(AppointmentData::class.java)
+                    if (bookingEntry != null) {
+                        println("date:${bookingEntry.bookingId}")
+                        println("time:${bookingEntry.bookingId}")
+                        println("vendorName:${bookingEntry.bookingId}")
+                        println("clientName:${bookingEntry.bookingId}")
+                        println("message:${bookingEntry.bookingId}")
+                        println("----------------------------")
 
+                        bookingList.add(bookingEntry)
+                    }
 
+                    adapter = BookingAdapter(bookingList)
+                    //layout design
+                    bookingsFragmentBinding.recyclerViewBookings.layoutManager =
+                        LinearLayoutManager(context)
+                    bookingsFragmentBinding.recyclerViewBookings.adapter = adapter
+                }
+            }
 
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
     }
 

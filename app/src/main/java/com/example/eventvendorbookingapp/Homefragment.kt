@@ -82,6 +82,7 @@ class Homefragment : Fragment(R.layout.fragment_home_fragment) {
                     println("socialMedia:${vendorEntry.vendorId}")
                     println("description:${vendorEntry.vendorId}")
                     println("accountDetails:${vendorEntry.vendorId}")
+                    println("liked:${vendorEntry.vendorId}")
                     println("----------------------------")
 
                     dataList.add(vendorEntry)

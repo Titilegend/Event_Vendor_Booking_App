@@ -24,21 +24,10 @@ class VendorForm : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val vendorEnteriesRef = database.reference.child("vendors")
 
-    /* val firebaseStorage:FirebaseStorage = FirebaseStorage.getInstance()
-     val storageRef:StorageReference = FirebaseStorage.reference*/
+
     val dataList = ArrayList<VendorDetails>()
     lateinit var adapter: Adapter
-    //val imageUri = vendorFormBindng.imageList1.tag as Uri?
 
-    /*private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val data: Intent? = result.data
-            val selectedImageUri: Uri? = data?.data
-            selectedImageUri?.let {
-                submitForm()
-            }
-        }
-    }*/
     //val locationOptions: Array<String> = resources.getStringArray(R.array.nigeria_states)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -135,7 +124,7 @@ class VendorForm : AppCompatActivity() {
 
             val vendorId: String = vendorEnteriesRef.push().key.toString()
 
-            val formData = VendorDetails(vendorId,phoneNumber,location,category,name,otherServices,teamSize,website,socialMediaLink,priceRange,description,accountDetails)
+            val formData = VendorDetails(vendorId,phoneNumber,location,category,name,otherServices,teamSize,website,socialMediaLink,priceRange,description,accountDetails,liked = false)
             vendorEnteriesRef.child(vendorId).setValue(formData)
 
             val intent = Intent(this@VendorForm, MainActivity::class.java)

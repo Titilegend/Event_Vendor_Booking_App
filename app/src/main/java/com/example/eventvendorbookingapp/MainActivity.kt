@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     val database:FirebaseDatabase = FirebaseDatabase.getInstance()
     //val myReference: DatabaseReference = database.reference.child("vendors")
     val dataList = ArrayList<VendorDetails>()
+    val bookingList = ArrayList<AppointmentData>()
     lateinit var adapter: Adapter
     lateinit var bookingAdapter: BookingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         mainBinding.bottomNavigationBar.selectedItemId = R.id.home
 
     }
+
     private fun handleBottomNavigation(
         menuItemId: Int
     ): Boolean = when(menuItemId) {
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity() {
             swapFragments(ProfileFragment())
             true
         }
+       /* R.id.liked -> {
+            swapFragments(RecommendedFragment())
+            true
+        }*/
 
         else -> false
     }

@@ -6,29 +6,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eventvendorbookingapp.databinding.ItemBookingBinding
 import com.example.eventvendorbookingapp.databinding.VendorListBinding
 
-class BookingAdapter(private val appointmentList:List<AppointmentData>):
-RecyclerView.Adapter<BookingAdapter.ViewHolder>(){
-    inner class ViewHolder(private val bookingAdapterBinding:ItemBookingBinding):
+class BookingAdapter(private val appointmentList:List<AppointmentData>): RecyclerView.Adapter<BookingAdapter.ViewHolder>(){
+    inner class ViewHolder(val bookingAdapterBinding:ItemBookingBinding):
     RecyclerView.ViewHolder(bookingAdapterBinding.root){
-        fun bind(appointmentData: AppointmentData) {
-            bookingAdapterBinding.dateTextView.text = appointmentData.date
-            bookingAdapterBinding.timeTextView.text = appointmentData.time
-            bookingAdapterBinding.nameBookingClientName.text = appointmentData.vendorName
-            bookingAdapterBinding.nameBookingVendorName.text = appointmentData.vendorName
-            bookingAdapterBinding.messageTextView.text = appointmentData.message
-        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingAdapter.ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val bookingAdapterBinding = ItemBookingBinding.inflate(inflater, parent, false)
+        val bookingAdapterBinding = ItemBookingBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(bookingAdapterBinding)
     }
 
     override fun onBindViewHolder(holder: BookingAdapter.ViewHolder, position: Int) {
-        val appointmentData = appointmentList[position]
-        holder.bind(appointmentData)
+        holder.bookingAdapterBinding.dateTextView.text = appointmentList[position].date
+        holder.bookingAdapterBinding.timeTextView.text = appointmentList[position].time
+        holder.bookingAdapterBinding.nameBookingVendorName.text = appointmentList[position].vendorName
+        holder.bookingAdapterBinding.nameBookingClientName.text = appointmentList[position].clientName
+        holder.bookingAdapterBinding.messageTextView.text = appointmentList[position].message
+
     }
 
     override fun getItemCount(): Int {

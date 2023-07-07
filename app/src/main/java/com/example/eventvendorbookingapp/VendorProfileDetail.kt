@@ -10,13 +10,14 @@ import com.google.firebase.database.FirebaseDatabase
 
 class VendorProfileDetail : AppCompatActivity(){
     lateinit var vendorProfileDetailBinding: ActivityVendorprofileDetailBinding
-   // val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: Adapter
     private lateinit var bookingAdapter: BookingAdapter
     private val dataList = ArrayList<VendorDetails>()
     private val  bookingsList:MutableList<AppointmentData> = mutableListOf()
     private lateinit var vendorDetailsRef: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +60,43 @@ class VendorProfileDetail : AppCompatActivity(){
             val intent = Intent(this@VendorProfileDetail, ClientForm::class.java)
             startActivity(intent)
         }
+         // Initialize vendorEntriesRef
+       /* vendorProfileDetailBinding.checkBox.setOnClickListener {
+            val vendorId =  vendorDetailsRef.push().key.toString()
+            val vendorEntriesRef = database.reference.child("vendors")
+            val vendorRef = vendorDetailsRef.child(vendorId)
+
+            vendorRef.child("liked").setValue(true)
+            val fragment = RecommendedFragment()
+            val args = Bundle().apply {
+                putString("servicesRendered2",servicesRendered )
+                putString("name2", name)
+                putString("pricing2",pricing)
+                putString("location2",location)
+                putString("contactInfo2",phoneNumber)
+                putString("otherServices2",otherServices)
+                putString("teamSize2",teamSize)
+                putString("website2",website)
+                putString("socialMedia2",socialMediaLink)
+                putString("description2",description)
+                putString("accountDetails2",accountDetails)
+
+
+
+            }
+
+            fragment.arguments = args
+            supportFragmentManager.beginTransaction()
+                .add(R.id.cardView2,fragment)
+                .addToBackStack(null)
+                .commit()
+//            val  RecommendData = VendorDetails(name, contactInfo,location,servicesRendered,name,otherServices,teamSize,website,socialMediaLink,pricing,des)
+           *//* bookingsRef.child(bookingId).setValue(bookingData)*//*
+
+        }
+*/
+
+
 
 
 

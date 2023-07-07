@@ -14,7 +14,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 
-    <style name="Theme.EventVendorBookingApp2" parent="Theme.MaterialComponents.Light.DarkActionBar" >
+    <style name="Theme.EventVendorBookingApp2" parent="Theme.MaterialComponents.Light.NoActionBar" >
         <item name="colorPrimary">@color/dark_purple</item>
         <item name="colorPrimaryVariant">@color/dark_purple</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -25,5 +25,15 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
+   <!-- <style name="ToggleButtonWithIconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        Theme.MaterialComponents.Light.DarkActionBar
+    </style>-->
 
 </resources>
