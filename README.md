@@ -14,9 +14,9 @@ This Android application provides a seamless platform for users to schedule appo
 
 ## How to Use:
 
-Install the app on your Android device.
-Create a user profile and select whether you are an event vendor or a client.
-For event vendors, fill in your details, services offered, pricing, and availability.
-Clients can browse vendors, view profiles, and book appointments with their preferred vendors.
-Vendors can manage appointments, view bookings, and access customer details through the vendor dashboard.
-Note: This app is a final year project and is still in development. Feedback and contributions are welcome to enhance its functionality and user experience.
+* Install the app on your Android device.
+* Create a user profile and select whether you are an event vendor or a client.
+* For event vendors, fill in your details, services offered, pricing, and availability.
+* Clients can browse vendors, view profiles, and book appointments with their preferred vendors.
+* Vendors can manage appointments, view bookings, and access customer details through the vendor dashboard.
+* Note: This app is a final year project and is still in development. Feedback and contributions are welcome to enhance its functionality and user experience.
