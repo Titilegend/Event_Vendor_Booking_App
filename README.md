@@ -21,3 +21,7 @@ This Android application provides a seamless platform for users to schedule appo
 * Vendors can manage appointments, view bookings, and access customer details through the vendor dashboard.
 * Note: This app is a final year project and is still in development. Feedback and contributions are welcome to enhance its functionality and user experience.
 ![Alt text](https://user-images.githubusercontent.com/88669602/256411622-90f351c7-afad-4b1e-9222-88a626fd9a2d.png)
+![Alt text](https://user-images.githubusercontent.com/88669602/256411629-acdcf3fa-9481-4a28-a267-476d64df0135.png)
+![Alt text](https://user-images.githubusercontent.com/88669602/256415873-2f473d8c-47a1-4c2d-9ba7-19aae1627271.png)
+![Alt text](https://user-images.githubusercontent.com/88669602/256415873-2f473d8c-47a1-4c2d-9ba7-19aae1627271.png)
+![Alt text](https://user-images.githubusercontent.com/88669602/256415873-2f473d8c-47a1-4c2d-9ba7-19aae1627271.png)
