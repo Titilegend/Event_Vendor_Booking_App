@@ -1,7 +1,7 @@
 # Event_Vendor_Booking_App
 Appointment Scheduling and Recommendation App
 
-This Android application provides a seamless platform for users to schedule appointments with event vendors and receive personalized recommendations for their events. The app offers a user-friendly interface, allowing users to select vendors based on categories, view vendor profiles, and book appointments hassle-free. The app is designed with the First-Come, First-Served (FCFS) Scheduling algorithm, ensuring efficient appointment management and reducing the chances of double bookings.
+This Android application provides a seamless platform for users to schedule appointments with event vendors and receive personalized recommendations for their events. The app offers a user-friendly interface, allowing users to select vendors based on categories, view vendor profiles, and book appointments hassle-free. The app is designed with the First-Come, First-Served (FCFS) Scheduling algorithm, ensuring efficient appointment management.
 
 ## Features:
 
