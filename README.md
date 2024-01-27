@@ -12,6 +12,10 @@ This Android application provides a seamless platform for users to schedule appo
 * Secure electronic payment system to pay commitment fees for appointments, providing a seamless payment experience.
 * Vendor dashboard for managing schedules, availability, and customer details, streamlining resource allocation and reducing scheduling conflicts.
 
+  ## Demo
+Try out our app [here]([https://appetize.io/app/your_unique_appetize_io_url](https://appetize.io/app/pw2gzjk7rlqocw7cf2722qzkni)) to see it in action without installing it!
+
+
 ## How to Use:
 
 * Install the app on your Android device.
@@ -19,7 +23,7 @@ This Android application provides a seamless platform for users to schedule appo
 * For event vendors, fill in your details, services offered, pricing, and availability.
 * Clients can browse vendors, view profiles, and book appointments with their preferred vendors.
 * Vendors can manage appointments, view bookings, and access customer details through the vendor dashboard.
-* Note: This app is a final year project and is still in development. Feedback and contributions are welcome to enhance its functionality and user experience.
+* Note: This app is still in development. Feedback and contributions are welcome to enhance its functionality and user experience.
 ![Alt text](https://user-images.githubusercontent.com/88669602/256411622-90f351c7-afad-4b1e-9222-88a626fd9a2d.png)
 ![Alt text](https://user-images.githubusercontent.com/88669602/256411629-acdcf3fa-9481-4a28-a267-476d64df0135.png)
 ![Alt text](https://user-images.githubusercontent.com/88669602/256415873-2f473d8c-47a1-4c2d-9ba7-19aae1627271.png)
