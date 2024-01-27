@@ -13,7 +13,7 @@ This Android application provides a seamless platform for users to schedule appo
 * Vendor dashboard for managing schedules, availability, and customer details, streamlining resource allocation and reducing scheduling conflicts.
 
   ## Demo
-Try out our app [here]([https://appetize.io/app/your_unique_appetize_io_url](https://appetize.io/app/pw2gzjk7rlqocw7cf2722qzkni)) to see it in action without installing it!
+Try out our app [here](https://appetize.io/app/pw2gzjk7rlqocw7cf2722qzkni?device=pixel7&osVersion=13.0) to see it in action without installing it!
 
 
 ## How to Use:
